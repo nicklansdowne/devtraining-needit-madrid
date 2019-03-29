@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.NeeditUtils</api_name>
+        <client_callable>false</client_callable>
+        <description>Utils Script Include for the NeedIt application</description>
+        <name>NeeditUtils</name>
+        <script><![CDATA[var NeeditUtils = Class.create();
+NeeditUtils.prototype = {
+    initialize: function() {
+    },
+
+	isDatePast: function(strDate){
+		// Create GlideDateTime objects for the current date and the passed in date
+		gs.info("Executing include script : NeeditUtils/isDatePast");
+		var rightnow = new GlideDateTime();
+		var testdate = new GlideDateTime(strDate);
+		
+		// If the testdate is before rightnow, return true, else return false
+		if (testdate.before(rightnow)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+
+	isDateToday: function(strDate){
+		// Create GlideDateTime objects for the current date and the passed in date
+		gs.info("Executing include script : NeeditUtils/isDateToday");
+		var rightnow = new GlideDateTime();
+		var testdate = new GlideDateTime(strDate);
+		
+		var todayDate = rightnow.getLocalDate();
+		var selectedDate = testdate.getLocalDate();
+		
+		// If the dates match, then return true
+		if ( todayDate.compareTo(selectedDate) == 0 ) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+	
+    type: 'NeeditUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-03-29 10:42:56</sys_created_on>
+        <sys_id>e4aa4aac1b2033007934dc29bc4bcb9f</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>NeeditUtils</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_e4aa4aac1b2033007934dc29bc4bcb9f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-03-29 11:43:51</sys_updated_on>
+    </sys_script_include>
+</record_update>
